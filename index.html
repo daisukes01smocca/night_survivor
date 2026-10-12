@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Night Survivor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="hud">
+      <div class="hud-box"><span>LV</span><strong id="levelValue">1</strong></div>
+      <div class="hud-box wide"><span>TIME</span><strong id="timeValue">00:00</strong></div>
+      <div class="hud-box"><span>SCORE</span><strong id="scoreValue">0</strong></div>
+      <div class="hud-box"><span>KILLS</span><strong id="killValue">0</strong></div>
+    </header>
+
+    <section class="canvas-wrap">
+      <button id="audioButton" class="audio-toggle" type="button">♫ ON</button>
+      <canvas id="gameCanvas" width="420" height="760"></canvas>
+
+      <div id="bossHud" class="boss-hud">
+        <div class="boss-label"><span id="bossLabelTitle">BOSS</span><strong id="bossValue">0 / 0</strong></div>
+        <div class="boss-meter"><div id="bossBar" class="boss-meter-fill"></div></div>
+      </div>
+
+      <div id="startOverlay" class="overlay visible">
+        <div class="panel">
+          <div class="badge">SURVIVAL SHOOTER</div>
+          <h1>NIGHT<br>SURVIVOR</h1>
+          <p>敵を避けながら生き残り、発光ダイヤ型のXPクリスタルを集めて強化しよう。緑＜青＜紫の順に獲得XPが大きくなります。敵弾は丸型です。5分ごとにボスが出現します。</p>
+          <button id="startButton" class="primary-btn">GAME START</button>
+          <div class="guide">スマホ：画面ドラッグ / PC：WASD・矢印キー</div>
+        </div>
+      </div>
+
+      <div id="levelOverlay" class="overlay">
+        <div class="panel level-panel">
+          <div class="badge">LEVEL UP</div>
+          <h2>強化を1つ選択</h2>
+          <div id="upgradeList" class="upgrade-list"></div>
+        </div>
+      </div>
+
+      <div id="resultOverlay" class="overlay">
+        <div class="panel">
+          <div id="resultBadge" class="badge">RESULT</div>
+          <h2 id="resultTitle">GAME OVER</h2>
+          <p id="resultText"></p>
+          <button id="retryButton" class="primary-btn">RETRY</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="status-area">
+      <div class="bar hp"><div id="hpBar" class="bar-fill"></div></div>
+      <div class="bar xp"><div id="xpBar" class="bar-fill"></div></div>
+      <div class="status-row">
+        <span>HP <strong id="hpValue">100/100</strong></span>
+        <span>XP <strong id="xpValue">0/10</strong></span>
+      </div>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
